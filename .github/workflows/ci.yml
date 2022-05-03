@@ -31,8 +31,8 @@ jobs:
         run: docker-compose run app rspec
         working-directory: ${{env.working-directory}}
 
-  lint: 
-        runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-latest
     env:
       working-directory: ./aplicacao
 

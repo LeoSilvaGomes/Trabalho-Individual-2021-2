@@ -28,3 +28,15 @@ jobs:
       - name: Run tests
         run: docker-compose run app rspec
         working-directory: ${{env.working-directory}}
+
+  lint: 
+        runs-on: ubuntu-latest
+    env:
+      working-directory: ./aplicacao
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install rubocop
+        run: docker-compose run app bash -c "gem install rubocop"
+      - name: Run rubocop
+        run: docker-compose run app bash -c "rubocop -l --fail-level F"

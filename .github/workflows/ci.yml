@@ -20,6 +20,8 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./aplicacao
 
     steps:
       - uses: actions/checkout@v3

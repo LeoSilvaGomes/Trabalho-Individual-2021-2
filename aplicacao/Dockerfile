@@ -1,11 +1,12 @@
 FROM ruby:3.0.0
 
-RUN apt-get update -qq && apt-get install -y nodejs postresql-client
+RUN apt-get update -qq
+RUN apt-get install -y nodejs postgresql-client
 
-WORKDIR /app
+WORKDIR /src
 
-COPY Gemfile /aplicacao/Gemfile
-COPY Gemfile.lock /aplicacao/Gemfile.lock
+COPY Gemfile /src/Gemfile
+COPY Gemfile.lock /src/Gemfile.lock
 
 RUN bundle install
 
